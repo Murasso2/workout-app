@@ -2,6 +2,7 @@
 FROM richarvey/nginx-php-fpm:2.1.2
 
 COPY . .
+RUN composer install
 
 # Image config
 ENV SKIP_COMPOSER 1
@@ -17,5 +18,5 @@ ENV LOG_CHANNEL stderr
 
 # Allow composer to run as root
 ENV COMPOSER_ALLOW_SUPERUSER 1
-RUN composer install
+
 CMD ["/start.sh"]
